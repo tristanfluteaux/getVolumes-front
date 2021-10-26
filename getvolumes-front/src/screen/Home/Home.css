@@ -1,0 +1,21 @@
+.playhome-img {
+    width: 100%;
+    position: relative;
+}
+
+.home-choice {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.home-img {
+    position: relative;
+}
+
+.home-choice p {
+    color: white;
+    position: absolute;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold 8px;
+}

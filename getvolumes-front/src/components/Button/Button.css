@@ -1,0 +1,12 @@
+.button-shopnow {
+    position: absolute;
+    background-color: #C7D1D8;
+    color: white;
+    
+    border-radius: 20px;
+    font-size: 20px;
+    width: 120px;
+    height: 50px;
+    border: solid black 1px;
+    top: 400px;
+}
