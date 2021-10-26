@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import './Header.css'
 
@@ -6,7 +7,7 @@ const Header = () => {
         <div className='header-main'>
             <SearchBar />
             <div className='header-div-title'>
-            <h1 className='header-title'>Get Volumes</h1>
+            <NavLink to='/'><h1 className='header-title'>Get Volumes</h1></NavLink>
             </div>
             <div className='header-log'>
                 <p>Register</p>
