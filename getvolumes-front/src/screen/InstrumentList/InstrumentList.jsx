@@ -1,15 +1,29 @@
-import { useState } from 'react';
-// import livepurple from '../../assets/livepurple.jpg'
-import livered from '../../assets/livered2.jpeg'
+import { useEffect, useState } from 'react';
 import './InstrumentList.css'
+import axios from 'axios';
+import ProductCard from '../../components/Card/ProductCard';
 
-const InstrumentList = () => {
-    const [instru, setInstru] = useState([])
+const InstrumentList = ({ instruments}) => {
+    // const [instruments, setInstruments] = useState()
 
+    // useEffect(() => {
+    //     const getGuitars = async () => {
+    //         const results = await axios.get('http://localhost:4000/guitars')
+    //         setInstruments(results.data)
+    //     }
+    //     getGuitars()
+    // }, [])
+    
     return (  
+        <div style={{backgroundColor: '#E3EBED'}}>
+            <h2 style={{textAlign: 'center', fontSize: '60px', margin:'0', paddingTop: '100px'}}>All products</h2>
         <div className='list-main'>
-            <img src={livered} alt='' style={{width:'100%', height: '480px'}}/>
-            <h2 style={{textAlign: 'center', fontSize: '60px'}}>All products</h2>
+
+            {instruments &&
+            instruments.map(instru => (
+                <ProductCard key={instru.id} {...instru} />
+            ))}
+        </div>
         </div>
     );
 }

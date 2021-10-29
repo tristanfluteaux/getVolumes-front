@@ -1,0 +1,17 @@
+.details-main {
+    background-color: #E3EBED;
+    display: flex;
+}
+
+.details-container-img {
+    width: 30%;
+    padding: 50px;
+}
+
+.details-img {
+    width: 60vh;
+}
+
+.details-container-info {
+    padding: 50px;
+}
