@@ -7,6 +7,8 @@ import InstrumentList from './screen/InstrumentList/InstrumentList';
 import InstrumentDetails from './screen/InstrumentDetails/InstrumentDetails';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Login from './screen/Log/Login';
+import SignIn from './screen/Log/SignIn';
 
 function App() {
   const [instruments, setInstruments] = useState()
@@ -33,9 +35,14 @@ function App() {
             />
           </Route>
           <Route exact path='/product/:id'>
-            <InstrumentDetails 
-
-            />
+            <InstrumentDetails/>
+          </Route>
+          <Route exact path='/login'>
+            <Login/>
+          </Route>
+          <Route exact path='/register'>
+            <SignIn/>
+            <Login/>
           </Route>
         </Switch>
       </BrowserRouter>

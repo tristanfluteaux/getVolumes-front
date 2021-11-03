@@ -10,8 +10,8 @@ const Header = () => {
             <NavLink to='/'><h1 className='header-title'>Get Volumes</h1></NavLink>
             </div>
             <div className='header-log'>
-                <p>Register</p>
-                <p>Login</p>
+                <NavLink to='/register'><p>Register</p></NavLink>
+                <NavLink to='login'><p>Login</p></NavLink>
             </div>
         </div>
     );
