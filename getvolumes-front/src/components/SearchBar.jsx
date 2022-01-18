@@ -3,7 +3,7 @@
 const SearchBar = () => {
     return (  
         <div>
-            <input type='text'/>
+            <input style={{borderRadius: "30px", height: "35px", width: "200px"}} type='text'/>
         </div>
     );
 }
