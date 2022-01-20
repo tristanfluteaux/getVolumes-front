@@ -23,23 +23,26 @@ const Login = () => {
 
     return (  
         <div className='main-login' style={{backgroundImage: `url(${homestud})`}}>
-            <form className='form-log'>
+            <form className='form-log' onSubmit={(event) => handleSubmit(event)}>
                 <h2>Register an account</h2>
                 <label htmlFor="email">Email :</label>
                 <input 
                 type="email"
                 name="email"
                 id="email"
+                required
                 onChange={(event) => setEmail(event.target.value)}
                 />
                 <label htmlFor="password">Password :</label>
                 <input 
                 type='password' 
+                name='password'
+                id='password'
+                required
                 onChange={(event) => setPassword(event.target.value)}
                 />
-                <input type='submit' value="SignIn" onClick={handleSubmit} style={{color: '#39414D'}}/>
+                <input type='submit' value="Signin" style={{color: '#39414D'}}/>
             </form>
-
         </div>
     );
 }
