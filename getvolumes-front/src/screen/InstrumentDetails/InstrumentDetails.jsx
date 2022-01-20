@@ -20,13 +20,22 @@ const InstrumentDetails = () => {
     return (  
         <div className='details-main'>
             <div className='details-container-img'>
-                <img className='details-img' src={`http://localhost:4000/static/images/${guitar.img}`} alt={`pic of ${guitar.name}`}/>
+                <img className='details-img' src={`http://localhost:4000/static/images/${guitar.image}`} alt={`pic of ${guitar.name}`}/>
             </div>
             <div className='details-container-info'>
                 <h2>{guitar.name}</h2>
-                <h2>{guitar.brend}</h2>
-                <p>{guitar.desc}</p>
-                <p>{`${guitar.price} €`}</p>
+                <h2>{guitar.product}</h2>
+                <p>{guitar.desc1}</p>
+                <p>{guitar.desc2}</p>
+                <p>{guitar.desc3}</p>
+                <p>{guitar.desc4}</p>
+                <p>{guitar.desc5}</p>
+                <p>{guitar.desc6}</p>
+                <p>{guitar.desc7}</p>
+                <p>{guitar.desc8}</p>
+                <p>{guitar.desc9}</p>
+                <p>{guitar.desc10}</p>
+                <h3>{`${guitar.price} €`}</h3>
                 <div style={{display: 'flex'}}>
                 <button>-</button> <p>{guitar.quantity}</p> <button>+</button>
                 </div>

@@ -1,6 +1,7 @@
 .details-main {
     background-color: #E3EBED;
     display: flex;
+    height: 100vh;
 }
 
 .details-container-img {
@@ -10,6 +11,7 @@
 
 .details-img {
     width: 60vh;
+    border-radius: 5px;
 }
 
 .details-container-info {
