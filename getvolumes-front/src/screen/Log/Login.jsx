@@ -55,6 +55,7 @@ const Login = () => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <input type="submit" value="Login" />
+        <input type="submit" value="Logout" onClick={logout}/>
       </form>
     </div>
   );

@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import './InstrumentList.css'
-import axios from 'axios';
 import ProductCard from '../../components/Card/ProductCard';
 
 const InstrumentList = ({ instruments}) => {

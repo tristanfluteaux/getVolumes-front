@@ -17,3 +17,8 @@
 .details-container-info {
     padding: 50px;
 }
+
+.details-button-select {
+    width: 30px;
+    height: 30px;
+}
