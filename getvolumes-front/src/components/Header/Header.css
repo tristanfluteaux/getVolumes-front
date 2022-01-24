@@ -30,6 +30,7 @@
 .header-log {
     display: flex;
     color: white;
+    align-items: center;
 }
 
 .header-log p {

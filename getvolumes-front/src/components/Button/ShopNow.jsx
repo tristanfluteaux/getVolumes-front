@@ -1,9 +1,10 @@
+
 import './Button.css'
 
-const ShopNow = () => {
+const ShopNow = ({ children }) => {
     return (  
         <div style={{display: 'flex',justifyContent:'center'}}>
-            <button className='button-shopnow'>Shop Now</button>
+            <button className='button-shopnow'>{children}</button>
         </div>
     );
 }

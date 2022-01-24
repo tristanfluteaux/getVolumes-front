@@ -3,13 +3,14 @@ import { createContext, useEffect, useReducer } from "react";
 import Reducer from "./Reducer";
 
 try {
-  JSON.parse(undefined);
+  localStorage.clear()
+  // JSON.parse(undefined);
 } catch (err) {
   // 👇️ This runs
   console.log('Error: ', err.message);
 }
 const INITALL_STATE = {
-  accessToken: (localStorage.getItem('access_token')) || null,
+  accessToken: JSON.parse(localStorage.getItem('access_token')) || null,
   error: null,
 };
 export const ContextUser = createContext(INITALL_STATE);

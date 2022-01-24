@@ -29,11 +29,6 @@ const Login = () => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem("access_token");
-    dispatch({ type: "LOGOUT" });
-  };
-
   return (
     <div className="main-login" style={{ backgroundImage: `url(${homestud})` }}>
       <form className="form-log" onSubmit={(event) => handleSubmit(event)}>
@@ -55,7 +50,6 @@ const Login = () => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <input type="submit" value="Login" />
-        <input type="submit" value="Logout" onClick={logout}/>
       </form>
     </div>
   );

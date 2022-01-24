@@ -1,11 +1,23 @@
 .button-shopnow {
-    position: absolute;
-    background-color: #C7D1D8;
+    background-color: #39414D;
     color: white; 
     border-radius: 20px;
-    font-size: 20px;
-    width: 120px;
+    font-size: 18px;
+    width: ;
     height: 50px;
+    border: solid #39414D 1px;
+    top: 400px;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px 1px #39414D;
+}
+
+.logout {
+    background-color: #C7D1D8;
+    color: white; 
+    border-radius: 10px;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
     border: solid black 1px;
     top: 400px;
 }
