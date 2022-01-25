@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ContextUser } from "../../context/Context";
-import SearchBar from "../SearchBar";
+import SearchBar from "./SearchBar";
 import cartListIcon from "../../assets/shopIcon.png"
 import "./Header.css";
 
@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <div className="header-main">
-      <SearchBar />
+      <SearchBar/>
       <div className="header-div-title">
         <NavLink style={{ textDecoration: "none" }} to="/" className="nav">
           <h1 className="header-title">Get Volumes</h1>

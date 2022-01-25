@@ -24,14 +24,14 @@ const Home = () => {
                 <p style={{textAlign: 'center', fontSize: '50px', paddingBottom:'80px'}}>Leonard bernstein</p>
             </div>
             <div style={{paddingBottom: "50px"}}>
-                <NavLink style={{textDecoration: "none"}} to='/product'><ShopNow/></NavLink>
+                <NavLink style={{textDecoration: "none"}} to='/product'><ShopNow>Shop Now</ShopNow></NavLink>
             </div>
             <Swiper
       spaceBetween={10}
       slidesPerView={1}
       modules={[ Pagination, Autoplay ]}
       autoplay={{
-        "delay": 3000,
+        "delay": 4000,
         "disableOnInteraction": false
       }}
       pagination={{

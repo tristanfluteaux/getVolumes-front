@@ -57,7 +57,7 @@ const InstrumentDetails = () => {
         <h3>{`${guitar.price} €`}</h3>
         <p>quantity : {guitar.quantity}</p>
       </div>
-      <div style={{ paddingTop: "50px", paddingLeft: "40px" }}>
+      <div style={{ paddingTop: "50px", paddingLeft: "40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <button onClick={down} className="details-button-select">
             -
