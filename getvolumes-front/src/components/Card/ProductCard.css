@@ -1,0 +1,11 @@
+.product-main {
+    width: 20%;
+    text-align: center;
+    padding: 40px;
+}
+
+.product-image {
+    height: 450px;
+    width: 400px;
+    border-radius: 20px;
+}
