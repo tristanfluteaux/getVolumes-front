@@ -7,7 +7,7 @@ import "./Header.css";
 import Counter from "./Counter";
 
 const Header = () => {
-  const { dispatch, access_token } = useContext(ContextUser);
+  const { dispatch, accessToken } = useContext(ContextUser);
 
   const out = () => {
     localStorage.removeItem("access_token");
@@ -22,7 +22,7 @@ const Header = () => {
           <h1 className="header-title">Get Volumes</h1>
         </NavLink>
       </div>
-      {access_token ? (
+      {accessToken ? (
         <div className="header-log">
           <NavLink to="/cart">
             <img src={cartListIcon} alt="icon" style={{ height: "30px" }} />

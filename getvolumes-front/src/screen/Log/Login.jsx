@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./Login.css";
 
 const Login = () => {
-  const { dispatch, access_token } = useContext(ContextUser);
+  const { dispatch, accessToken } = useContext(ContextUser);
   const history = useHistory();
   
   const [email, setEmail] = useState("");
