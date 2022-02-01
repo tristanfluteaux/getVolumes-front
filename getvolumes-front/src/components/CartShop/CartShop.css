@@ -1,0 +1,22 @@
+.cart-button-choice {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-div-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding-top: 50px;
+}
+
+.cart-title {
+    font-size: 60px;
+}
+
+.amp-icon {
+    position: absolute;
+    
+    right: 600px;
+}

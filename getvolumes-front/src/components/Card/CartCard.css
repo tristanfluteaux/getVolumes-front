@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+}
+.image-container {
+  padding-left: 40px;
+}
+.guit-image {
+    height: 100%;
+    width: 90%;
+}
+.info-container {
+  width: 33%;
+}
+.price-container {
+  width: 33%;
+}

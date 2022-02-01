@@ -21,3 +21,10 @@
     border: solid black 1px;
     top: 400px;
 }
+
+.box-button {
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    background-color: #39414D;
+}

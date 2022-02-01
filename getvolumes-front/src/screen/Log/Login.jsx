@@ -1,12 +1,14 @@
-import "./Login.css";
-import homestud from "../../assets/homestud.jpg";
-import { useContext, useState } from "react";
 import axios from "axios";
+import homestud from "../../assets/homestud.jpg";
 import { ContextUser } from "../../context/Context";
+import { useContext, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import "./Login.css";
 
 const Login = () => {
-  const { dispatch, access_token } = useContext(ContextUser);
-
+  const { dispatch, accessToken } = useContext(ContextUser);
+  const history = useHistory();
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,11 +25,13 @@ const Login = () => {
           type: "LOGIN_SUCCESS",
           payload: response.data.access_token,
         });
+        history.push("/");
       }
     } catch (error) {
       console.log(error);
     }
   };
+
 
   return (
     <div className="main-login" style={{ backgroundImage: `url(${homestud})` }}>

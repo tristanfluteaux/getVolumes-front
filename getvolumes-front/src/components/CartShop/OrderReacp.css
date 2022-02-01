@@ -1,0 +1,10 @@
+.recap-main {
+    width: 20%;
+    border:solid #39414D 1px;
+    height: 50vh;
+}
+
+.recap-container {
+    padding-left: 30px;
+    padding-top: 10px;
+}

@@ -9,7 +9,7 @@ const SearchBar = () => {
 
   useEffect(() => {
       const searchData = async () => {
-            const results = await axios.get(`http://localhost:4000/guitars/${searchValue}`)
+            const results = await axios.get(`http://localhost:4000/guitars/product/${searchValue}`)
             setName(results.data)
         }
         searchData()

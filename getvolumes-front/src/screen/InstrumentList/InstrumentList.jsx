@@ -1,16 +1,21 @@
 import './InstrumentList.css'
 import ProductCard from '../../components/Card/ProductCard';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { getProducts as listProducts } from "../../redux/actions/productActions" 
 
 const InstrumentList = ({ instruments}) => {
-    // const [instruments, setInstruments] = useState()
 
-    // useEffect(() => {
-    //     const getGuitars = async () => {
-    //         const results = await axios.get('http://localhost:4000/guitars')
-    //         setInstruments(results.data)
-    //     }
-    //     getGuitars()
-    // }, [])
+    const dispatch = useDispatch()
+
+    const getProducts = useSelector(state => state.getProducts)
+    const { prodcuts, loading, error } = getProducts
+
+    useEffect(() => {
+        dispatch(listProducts())
+    }, [dispatch])
     
     return (  
         <div style={{backgroundColor: '#E3EBED'}}>
