@@ -11,7 +11,6 @@
     color: white;
     text-align: center;
     font-size: 60px;
-    margin: 0;
     list-style: none;
     list-style-type: none;
 }
@@ -21,11 +20,6 @@
     list-style-type: none;
 
 }
-
-.header-div-title {
-    
-}
-
 
 .header-log {
     display: flex;
@@ -69,4 +63,3 @@
     text-decoration: none;
     color: white;
   }
-  

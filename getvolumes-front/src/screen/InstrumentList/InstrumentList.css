@@ -3,6 +3,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    padding-top: 200px;
-    padding: 40px;
+    padding-top: 100px;
 }

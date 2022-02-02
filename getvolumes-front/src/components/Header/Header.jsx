@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import { ContextUser } from "../../context/Context";
 import SearchBar from "./SearchBar";
 import cartListIcon from "../../assets/shopIcon.png";
-import "./Header.css";
 import Counter from "./Counter";
+
+import "./Header.css";
 
 const Header = () => {
   const { dispatch, accessToken } = useContext(ContextUser);
@@ -17,11 +18,9 @@ const Header = () => {
   return (
     <div className="header-main">
       <SearchBar />
-      <div className="header-div-title">
         <NavLink style={{ textDecoration: "none" }} to="/" className="nav">
           <h1 className="header-title">Get Volumes</h1>
         </NavLink>
-      </div>
       {accessToken ? (
         <div className="header-log">
           <NavLink to="/cart">
@@ -39,14 +38,14 @@ const Header = () => {
             to="/register"
             className="nav"
           >
-            <p>Register</p>
+            <p>Inscription</p>
           </NavLink>
           <NavLink
             style={{ textDecoration: "none" }}
             to="login"
             className="nav"
           >
-            <p>Login</p>
+            <p>Connexion</p>
           </NavLink>
         </div>
       )}
