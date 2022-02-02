@@ -1,84 +1,88 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import {useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import ShopNow from "../../components/Button/ShopNow";
+
+import { getProductDetails } from "../../redux/actions/productActions";
+import { addToCart } from "../../redux/actions/cartActions";
 
 import "./InstrumentDetails.css";
 
 const InstrumentDetails = () => {
-  const [guitar, setGuitar] = useState([]);
-  const [shop, setShop] = useState(1);
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
+  const dispatch = useDispatch();
 
-  const up = (e) => {
-    e.preventDefault();
-    setShop((c) => c + 1);
-    if (guitar.quantity === shop) {
-      return setShop(guitar.quantity);
-    }
-  };
-  const down = (e) => {
-    e.preventDefault();
-    setShop((c) => c - 1);
-    if (shop === 1) {
-      return setShop(1);
-    }
-  };
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    const guitarById = async () => {
-      const result = await axios.get(`http://localhost:4000/guitars/${id}`);
-      setGuitar(result.data);
-    };
-    guitarById();
-  }, [id]);
+    if (product && id !== product.id) dispatch(getProductDetails(id));
+  }, [dispatch, id]);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product.id, qty))
+    alert("Produit ajouté au panier")
+  }
+
   return (
     <div className="details-main">
-      <div className="details-container-img">
-        <img
-          className="details-img"
-          src={`http://localhost:4000/static/images/${guitar.image}`}
-          alt={`pic of ${guitar.name}`}
-        />
-      </div>
-      <div className="details-container-info">
-        <h2>{guitar.name}</h2>
-        <h2>{guitar.product}</h2>
-        <p>{guitar.desc1}</p>
-        <p>{guitar.desc2}</p>
-        <p>{guitar.desc3}</p>
-        <p>{guitar.desc4}</p>
-        <p>{guitar.desc5}</p>
-        <p>{guitar.desc6}</p>
-        <p>{guitar.desc7}</p>
-        <p>{guitar.desc8}</p>
-        <p>{guitar.desc9}</p>
-        <p>{guitar.desc10}</p>
-        <h3>{`${guitar.price} €`}</h3>
-        <p>quantity : {guitar.quantity}</p>
-      </div>
-      <div style={{ paddingTop: "50px", paddingLeft: "40px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <button onClick={down} className="details-button-select">
-            -
-          </button>
-          <p
+      {loading ? (
+        <h2>Loading ...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
+        <>
+          <div className="details-container-img">
+            <img
+              className="details-img"
+              src={`http://localhost:4000/static/images/${product.image}`}
+              alt={`pic of ${product.name}`}
+            />
+          </div>
+          <div className="details-container-info">
+            <h2>{product.name}</h2>
+            <h2>{product.brend}</h2>
+            <p>{product.desc1}</p>
+            <p>{product.desc2}</p>
+            <p>{product.desc3}</p>
+            <p>{product.desc4}</p>
+            <p>{product.desc5}</p>
+            <p>{product.desc6}</p>
+            <p>{product.desc7}</p>
+            <p>{product.desc8}</p>
+            <p>{product.desc9}</p>
+            <p>{product.desc10}</p>
+            <h3 style={{fontSize: "35px"}}>{`${product.price} €`}</h3>
+          </div>
+          <div
             style={{
-              paddingLeft: "10px",
-              paddingRight: "10px",
-              fontSize: "20px",
+              paddingTop: "50px",
+              paddingLeft: "40px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
-          >
-            {shop}
-          </p>{" "}
-          <button onClick={up} className="details-button-select">
-            +
-          </button>
-        </div>
-        <div>
-          <ShopNow>Add to cart</ShopNow>
-        </div>
-      </div>
+            >
+              <p>
+                Disponibilité :{" "}
+                {product.quantity > 0 ? "En stock" : "Rupture de stock"}
+              </p>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <select value={qty} onChange={(e) => setQty(e.target.value)} style={{width:"80px", marginBottom:"20px", textAlign: "center"}}>
+                {[...Array(product.quantity).keys()].map((x) => (
+                  <option key={x + 1} value={x + 1}>
+                    {x + 1}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <ShopNow click={addToCartHandler}>Ajouter au panier</ShopNow>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,25 +1,42 @@
+import { Link } from "react-router-dom";
 import "./CartCard.css";
 
-const CartCard = ({ image, name, type, product, price }) => {
+const CartCard = ({ item, qtyChangeHandler, removeHandler }) => {
   return (
     <>
       <div className="main-container">
         <div className="image-container">
-          <img src={image} alt={name} className="guit-image" />
+          <Link to={`/product/:${item.id}`}>
+            <img
+              src={`http://localhost:4000/static/images/${item.image}`}
+              alt={item.name}
+              className="guit-image"
+            />
+          </Link>
         </div>
 
         <div className="info-container">
-          <h1>{name}</h1>
-          <h2>{product}</h2>
-          <p>{type}</p>
+          <h1>{item.name}</h1>
+          <h2>{item.brend}</h2>
+          <p>{item.type}</p>
         </div>
         <div className="price-container">
           <div style={{ display: "flex" }}>
-            <button>-</button>
-            <p>1</p>
-            <button>+</button>
+            <select
+              value={item.qty}
+              onChange={(e) => qtyChangeHandler(item.product, e.target.value)}
+            >
+              {[...Array(item.quantity).keys()].map((x) => (
+                <option key={x + 1} value={x + 1}>
+                  {x + 1}
+                </option>
+              ))}
+            </select>
+            <button onClick={() => removeHandler(item.product)}>
+              Supprimer
+            </button>
           </div>
-          <h3>{price} €</h3>
+          <h3>{item.price} €</h3>
         </div>
       </div>
     </>
