@@ -16,7 +16,6 @@ const InstrumentList = ({ instruments}) => {
     useEffect(() => {
         dispatch(listProducts())
     }, [dispatch])
-    console.log(products)
     return (  
         <div style={{backgroundColor: '#E3EBED'}}>
             <h2 style={{textAlign: 'center', fontSize: '60px', paddingTop: '100px'}}>Tout les produits</h2>

@@ -14,10 +14,9 @@ const ProductCard = ({ name, id, type, brend, image, price }) => {
             />
           </NavLink>
           <div className="product-info">
-            <h2 style={{ marginTop: "0px" }}>{name}</h2>
-            <h3>{brend}</h3>
-            <h4 style={{ fontSize: "20px", marginTop: "2px" }}>{price} €</h4>
-            <p style={{ paddingBottom: "10px" }}>{type}</p>
+            <h2 className="info-color">{name}</h2>
+            <h3 className="info-color">{brend}</h3>
+            <h4 className="info-color">{price} €</h4>
           </div>
         </div>
       </div>

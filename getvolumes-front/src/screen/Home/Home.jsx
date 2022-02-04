@@ -6,7 +6,7 @@ import "./Home.css";
 import accoustichome from "../../assets/accoustichome.jpg";
 import eletrichome from "../../assets/electrichome.jpg";
 import basshome from "../../assets/basshome.jpg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ShopNow from "../../components/Button/ShopNow";
 
 import SwiperCore, { Pagination, Autoplay } from "swiper";
@@ -106,7 +106,9 @@ const Home = () => {
           style={{ width: "33%", display: "flex", justifyContent: "center" }}
         >
           <p>Bass</p>
+          <NavLink to="/filter">
           <button className="home-category-button">Show Galery</button>
+          </NavLink>
           <img
             src={basshome}
             alt=""

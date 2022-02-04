@@ -4,6 +4,14 @@
     height: 100vh;
 }
 
+.details-container-rigth {
+    padding-top: 50px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .details-container-img {
     width: 30%;
     padding: 50px;
@@ -15,11 +23,19 @@
 }
 
 .details-container-info {
-    padding: 50px;
     width: 30%;
+    padding-top: 70px;
+    padding-left: 10px;
 }
 
 .details-button-select {
     width: 30px;
     height: 30px;
+}
+
+.back-button {
+    background-color: #39414D;
+    color: white;
+    width: 100px;
+
 }

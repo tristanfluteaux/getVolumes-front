@@ -7,6 +7,7 @@ import { getProductDetails } from "../../redux/actions/productActions";
 import { addToCart } from "../../redux/actions/cartActions";
 
 import "./InstrumentDetails.css";
+import { Link } from "react-router-dom";
 
 const InstrumentDetails = () => {
   const [qty, setQty] = useState(1);
@@ -34,6 +35,9 @@ const InstrumentDetails = () => {
       ) : (
         <>
           <div className="details-container-img">
+          <Link to="/product">
+          <button className="back-button">Précédent</button>
+          </Link>
             <img
               className="details-img"
               src={`http://localhost:4000/static/images/${product.image}`}
@@ -55,14 +59,7 @@ const InstrumentDetails = () => {
             <p>{product.desc10}</p>
             <h3 style={{fontSize: "35px"}}>{`${product.price} €`}</h3>
           </div>
-          <div
-            style={{
-              paddingTop: "50px",
-              paddingLeft: "40px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+          <div className="details-container-rigth"
             >
               <p>
                 Disponibilité :{" "}

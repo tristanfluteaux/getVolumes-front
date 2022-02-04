@@ -28,11 +28,12 @@
 .home-category-button {
     margin-top: 250px;
     position: absolute;
-    background-color: #C7D1D8;
+    background-color: #39414D;
     color: white; 
     border-radius: 20px;
     font-size: 20px;
-    width: 120px;
+    width: 160px;
     height: 50px;
     border: solid black 1px;
+    cursor: pointer;
 }

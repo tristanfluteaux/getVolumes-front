@@ -42,6 +42,26 @@ export const getProductDetails = (id) => async (dispatch) => {
     });
   }
 };
+export const getTypeProducts = (bass) => async (dispatch) => {
+  try {
+    dispatch({ type: actionTypes.GET_TYPE_REQUEST });
+
+    const { data } = await axios.get(`http://localhost:4000/guitars/filter/guitar`);
+
+    dispatch({
+      type: actionTypes.GET_TYPE_SUCCESS,
+      payload: data, 
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.GET_TYPE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
 
 export const removeProductDetails = () => (dispatch) => {
   dispatch({

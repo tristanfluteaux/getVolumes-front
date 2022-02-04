@@ -9,6 +9,7 @@ import axios from "axios";
 import Login from "./screen/Log/Login";
 import SignIn from "./screen/Log/SignIn";
 import CartShop from "./components/CartShop/CartShop";
+import CategoryScreen from "./screen/CategoryScreen";
 
 function App() {
   const [instruments, setInstruments] = useState();
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route exact path="/product/:id">
             <InstrumentDetails />
+          </Route>
+          <Route exact path="/filter">
+            <CategoryScreen instruments={instruments} />
           </Route>
           <Route exact path="/cart">
             <CartShop />
