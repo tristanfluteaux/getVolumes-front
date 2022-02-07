@@ -8,7 +8,7 @@ import "./Login.css";
 const Login = () => {
   const { dispatch, accessToken } = useContext(ContextUser);
   const history = useHistory();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,7 +31,6 @@ const Login = () => {
       console.log(error);
     }
   };
-
 
   return (
     <div className="main-login" style={{ backgroundImage: `url(${homestud})` }}>

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 import { getProducts as listProducts } from "../../redux/actions/productActions";
 
-const InstrumentList = () => {
+const GuitCategory = () => {
   const dispatch = useDispatch();
 
   const getProducts = useSelector((state) => state.getProducts);
@@ -17,7 +17,7 @@ const InstrumentList = () => {
   }, [dispatch]);
   return (
     <div>
-      <h2 className="list-main-title">Tout les produits</h2>
+      <h2 className="list-main-title">Les guitares électriques</h2>
       <div className="list-main">
         {loading ? (
           <h3>Loading ...</h3>
@@ -25,21 +25,23 @@ const InstrumentList = () => {
           <h3>{error}</h3>
         ) : (
           products &&
-          products.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              image={product.image}
-              price={product.price}
-              brend={product.brend}
-              type={product.type}
-            />
-          ))
+          products
+            .filter((x) => x.type === "guitar")
+            .map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                image={product.image}
+                price={product.price}
+                brend={product.brend}
+                type={product.type}
+              />
+            ))
         )}
       </div>
     </div>
   );
 };
 
-export default InstrumentList;
+export default GuitCategory;

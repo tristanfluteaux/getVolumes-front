@@ -4,7 +4,7 @@ import "./ProductCard.css";
 const ProductCard = ({ name, id, type, brend, image, price }) => {
   return (
     <>
-      <div className="product-main">
+      <div className="product-main slide-in-bottom">
         <div>
           <NavLink to={`/product/${id}`}>
             <img

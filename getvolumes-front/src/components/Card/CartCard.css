@@ -5,12 +5,21 @@
   padding-left: 40px;
 }
 .guit-image {
-    height: 100%;
-    width: 90%;
+  height: 340px;
+  width: 100%;
+  border-radius: 10px;
 }
 .info-container {
+  padding-left: 20px;
   width: 33%;
 }
 .price-container {
+  padding-top: 10px;
   width: 33%;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  height: 30px;
 }

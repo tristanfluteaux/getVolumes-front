@@ -18,34 +18,31 @@ const Header = () => {
   return (
     <div className="header-main">
       <SearchBar />
-        <NavLink style={{ textDecoration: "none" }} to="/" className="nav">
-          <h1 className="header-title">Get Volumes</h1>
-        </NavLink>
+      <NavLink className="nav" to="/">
+        <h1 className="header-title">Get Volumes</h1>
+      </NavLink>
       {accessToken ? (
         <div className="header-log">
           <NavLink to="/cart">
-            <img src={cartListIcon} alt="icon" style={{ height: "30px" }} />
+            <img
+              className="header-shop"
+              src={cartListIcon}
+              alt="icon"
+              style={{ height: "30px" }}
+            />
           </NavLink>
           <Counter />
-          <p style={{ cursor: "pointer" }} onClick={out}>
+          <p className="header-shop" onClick={out}>
             Log Out
           </p>
         </div>
       ) : (
         <div className="header-log">
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to="/register"
-            className="nav"
-          >
-            <p>Inscription</p>
+          <NavLink to="/register" className="nav">
+            <p className="header-shop">Inscription</p>
           </NavLink>
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to="login"
-            className="nav"
-          >
-            <p>Connexion</p>
+          <NavLink to="login" className="nav">
+            <p className="header-shop">Connexion</p>
           </NavLink>
         </div>
       )}

@@ -17,11 +17,11 @@ const CartCard = ({ item, qtyChangeHandler, removeHandler }) => {
 
         <div className="info-container">
           <h1>{item.name}</h1>
-          <h2>{item.brend}</h2>
-          <p>{item.type}</p>
+          <h3>{item.brend}</h3>
         </div>
         <div className="price-container">
-          <div style={{ display: "flex" }}>
+          <div className="quantity-container">
+            <h4>Quantité :</h4>
             <select
               value={item.qty}
               onChange={(e) => qtyChangeHandler(item.product, e.target.value)}

@@ -1,3 +1,9 @@
+.shopnow-container {
+    display: flex;
+    justify-content: center;
+}
+
+
 .button-shopnow {
     background-color: #39414D;
     color: white; 

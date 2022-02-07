@@ -1,39 +1,93 @@
 .home-main {
-    background-color: #E3EBED;
+  background-color: #e3ebed;
+}
+
+.home-enter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .playhome-img {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .home-choice {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .home-img {
-    position: relative;
+  position: relative;
 }
 
 .home-choice p {
-    color: white;
-    position: absolute;
-    font-size: 60px;
-    text-align: center;
-    font-weight: bold 8px;
+  color: white;
+  position: absolute;
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold 8px;
 }
 
 .home-category-button {
-    margin-top: 250px;
-    position: absolute;
-    background-color: #39414D;
-    color: white; 
-    border-radius: 20px;
-    font-size: 20px;
-    width: 160px;
-    height: 50px;
-    border: solid black 1px;
-    cursor: pointer;
+  margin-top: 250px;
+  background-color: #39414d;
+  color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  width: 160px;
+  height: 50px;
+  border: solid black 1px;
+  cursor: pointer;
+}
+
+.nav-category {
+  text-decoration: none;
+  position: absolute;
+}
+
+.category-container {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  flex-direction: "column",
+}
+
+.category-img {
+  width: 100%;
+  height: 100%;
+}
+
+.text-focus-in {
+  -webkit-animation: text-focus-in 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: text-focus-in 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
 }
