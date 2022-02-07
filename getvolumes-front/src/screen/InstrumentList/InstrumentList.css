@@ -1,7 +1,13 @@
 .list-main {
-    background-color: #E3EBED;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    padding-top: 100px;
+  background-color: #e3ebed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.list-main-title {
+  text-align: center;
+  font-size: 60px;
+  padding-top: 100px;
 }

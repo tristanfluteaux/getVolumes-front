@@ -1,18 +1,20 @@
-import "./Counter.css";
-
 import { useSelector } from "react-redux";
 
-const Counter = () => {
+import "./Counter.css";
 
-  const cart = useSelector(state => state.cart)
-  const {cartItems } = cart
+const Counter = () => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   const getCartCount = () => {
-    return cartItems.reduce((qty, item) => qty + Number(item.qty), 0)
-  }
+    return cartItems.reduce((qty, item) => qty + Number(item.qty), 0);
+  };
+
   return (
     <>
-      <div className="div-counter">{getCartCount()}</div>
+      <div key={getCartCount()} className="div-counter slide-in-top">
+        {getCartCount()}
+      </div>
     </>
   );
 };

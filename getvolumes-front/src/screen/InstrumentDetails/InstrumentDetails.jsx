@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react";
-import {useDispatch, useSelector } from "react-redux";
+import { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 import ShopNow from "../../components/Button/ShopNow";
 
 import { getProductDetails } from "../../redux/actions/productActions";
 import { addToCart } from "../../redux/actions/cartActions";
 
+import { ContextUser } from "../../context/Context";
 import "./InstrumentDetails.css";
 
 const InstrumentDetails = () => {
   const [qty, setQty] = useState(1);
   const { id } = useParams();
   const dispatch = useDispatch();
+
+  const { accessToken } = useContext(ContextUser);
 
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, product } = productDetails;
@@ -21,9 +25,8 @@ const InstrumentDetails = () => {
   }, [dispatch, id]);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(product.id, qty))
-    alert("Produit ajouté au panier")
-  }
+    dispatch(addToCart(product.id, qty));
+  };
 
   return (
     <div className="details-main">
@@ -34,6 +37,9 @@ const InstrumentDetails = () => {
       ) : (
         <>
           <div className="details-container-img">
+            <NavLink to="/product">
+              <button className="back-button">Précédent</button>
+            </NavLink>
             <img
               className="details-img"
               src={`http://localhost:4000/static/images/${product.image}`}
@@ -53,33 +59,31 @@ const InstrumentDetails = () => {
             <p>{product.desc8}</p>
             <p>{product.desc9}</p>
             <p>{product.desc10}</p>
-            <h3 style={{fontSize: "35px"}}>{`${product.price} €`}</h3>
+            <h3 style={{ fontSize: "35px" }}>{`${product.price} €`}</h3>
           </div>
-          <div
-            style={{
-              paddingTop: "50px",
-              paddingLeft: "40px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-            >
-              <p>
-                Disponibilité :{" "}
-                {product.quantity > 0 ? "En stock" : "Rupture de stock"}
-              </p>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <select value={qty} onChange={(e) => setQty(e.target.value)} style={{width:"80px", marginBottom:"20px", textAlign: "center"}}>
-                {[...Array(product.quantity).keys()].map((x) => (
-                  <option key={x + 1} value={x + 1}>
-                    {x + 1}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <ShopNow click={addToCartHandler}>Ajouter au panier</ShopNow>
-            </div>
+          <div className="details-container-rigth">
+            <p>
+              Disponibilité :{" "}
+              {product.quantity > 0 ? "En stock" : "Rupture de stock"}
+            </p>
+            {accessToken && product.quantity > 0 ? (
+              <>
+                <div className="details-select-div">
+                  <select
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                    className="details-select"
+                  >
+                    {[...Array(product.quantity).keys()].map((x) => (
+                      <option key={x + 1} value={x + 1}>
+                        {x + 1}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <ShopNow click={addToCartHandler}>Ajouter au panier</ShopNow>
+              </>
+            ) : null}
           </div>
         </>
       )}

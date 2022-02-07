@@ -1,9 +1,15 @@
+.shopnow-container {
+    display: flex;
+    justify-content: center;
+}
+
+
 .button-shopnow {
     background-color: #39414D;
     color: white; 
     border-radius: 20px;
     font-size: 18px;
-    width: 140px;
+    width: 180px;
     height: 50px;
     border: solid #39414D 1px;
     top: 400px;

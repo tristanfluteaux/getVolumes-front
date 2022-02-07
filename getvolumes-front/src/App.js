@@ -4,22 +4,19 @@ import "./normalize.css";
 import Header from "./components/Header/Header";
 import InstrumentList from "./screen/InstrumentList/InstrumentList";
 import InstrumentDetails from "./screen/InstrumentDetails/InstrumentDetails";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Login from "./screen/Log/Login";
 import SignIn from "./screen/Log/SignIn";
 import CartShop from "./components/CartShop/CartShop";
+import { PrivateRoute } from "./screen/Log/useSecureRoute";
+
+import { ContextUser } from "./context/Context";
+import { useContext } from "react";
+import BassCategory from "./screen/InstrumentList/BassCategory";
+import GuitCategory from "./screen/InstrumentList/GuitCategory";
+import AcousticCategory from "./screen/InstrumentList/AcousticCategory";
 
 function App() {
-  const [instruments, setInstruments] = useState();
-
-  useEffect(() => {
-    const getGuitars = async () => {
-      const results = await axios.get("http://localhost:4000/guitars");
-      setInstruments(results.data);
-    };
-    getGuitars();
-  }, []);
+  const { accessToken } = useContext(ContextUser);
 
   return (
     <div className="App">
@@ -30,13 +27,19 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/product">
-            <InstrumentList instruments={instruments} />
+            <InstrumentList />
           </Route>
           <Route exact path="/product/:id">
             <InstrumentDetails />
           </Route>
-          <Route exact path="/cart">
-            <CartShop />
+          <Route exact path="/filter/bass">
+            <BassCategory />
+          </Route>
+          <Route exact path="/filter/guitar">
+            <GuitCategory />
+          </Route>
+          <Route exact path="/filter/accoustic">
+            <AcousticCategory />
           </Route>
           <Route exact path="/login">
             <Login />
@@ -44,6 +47,9 @@ function App() {
           <Route exact path="/register">
             <SignIn />
           </Route>
+          <PrivateRoute exact path="/cart">
+            <CartShop />
+          </PrivateRoute>
         </Switch>
       </BrowserRouter>
     </div>
