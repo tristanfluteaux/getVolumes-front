@@ -32,6 +32,9 @@ const Header = () => {
             />
           </NavLink>
           <Counter />
+          <NavLink to="/info" className="nav">
+            <p>User</p>
+          </NavLink>
           <p className="header-shop" onClick={out}>
             Log Out
           </p>

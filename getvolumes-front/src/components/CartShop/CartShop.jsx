@@ -1,15 +1,13 @@
-import BoxButton from "../Button/BoxButton";
 import AmpIcon from "../../assets/ampIcon.png";
-import OrderRecap from "./OrderRecap";
 import CartCard from "../Card/CartCard";
+import OrderRecap from "./OrderRecap";
+import ShopNow from "../Button/ShopNow";
+import { NavLink } from "react-router-dom";
 
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
 
 import "./CartShop.css";
-import { Link, NavLink } from "react-router-dom";
-import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
-import ShopNow from "../Button/ShopNow";
 
 const CartShop = () => {
   const dispatch = useDispatch();
@@ -47,7 +45,9 @@ const CartShop = () => {
             </NavLink>
           </ShopNow>
           <ShopNow>
+          <NavLink style={{textDecoration: "none"}} to="/checkout">
             <span style={{ color: "#FFFFFF" }}>Checkout</span>
+            </NavLink>
           </ShopNow>
         </div>
         <div

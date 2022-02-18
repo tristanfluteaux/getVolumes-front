@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "./OrderReacp.css";
 
 const OrderRecap = ({ getCartCount, getCartSubTotal }) => {
+  const [priceOrder, setPriceOrder] = useState(0)
 
   const taxCalculate = () => {
     return getCartSubTotal() * 0.1
@@ -14,7 +16,13 @@ const OrderRecap = ({ getCartCount, getCartSubTotal }) => {
       return 0
     }
   }
-  console.log(getCartSubTotal())
+
+  const subTotal = () => {
+    return (getCartSubTotal()+taxCalculate()+ shipping()).toFixed(2)
+  }
+  let array = []
+
+  console.log(array.push(subTotal()))
   return (
     <div className="recap-main">
       <div className="recap-container">
@@ -25,7 +33,7 @@ const OrderRecap = ({ getCartCount, getCartSubTotal }) => {
           <p>Montant des articles : {getCartSubTotal().toFixed(2)} €</p>
           <p>Calculation des taxes : {taxCalculate().toFixed(2)} €</p>
           <p>Estimation des frais de port : {shipping().toFixed(2)} €</p>
-          <h3>Total : {(getCartSubTotal()+taxCalculate()+ shipping()).toFixed(2)} € TTC</h3>
+          <h3>Total : {subTotal()} € TTC</h3>
         </div>
       </div>
     </div>

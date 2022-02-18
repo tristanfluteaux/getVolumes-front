@@ -1,0 +1,3 @@
+export const ADD_TO_ORDER = "ADD_TO_ORDER"
+export const CONFIRM_ORDER = "CONFIRM_ORDER"
+export const ORDER_RESET= "ORDER_RESET"

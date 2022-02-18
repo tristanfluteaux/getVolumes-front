@@ -1,19 +1,23 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { PrivateRoute } from "./screen/Log/useSecureRoute";
+import { ContextUser } from "./context/Context";
+import { useContext } from "react";
+import CartShop from "./components/CartShop/CartShop";
+import Checkout from "./screen/Checkout/Checkout";
 import Home from "./screen/Home/Home";
-import "./normalize.css";
 import Header from "./components/Header/Header";
 import InstrumentList from "./screen/InstrumentList/InstrumentList";
 import InstrumentDetails from "./screen/InstrumentDetails/InstrumentDetails";
 import Login from "./screen/Log/Login";
 import SignIn from "./screen/Log/SignIn";
-import CartShop from "./components/CartShop/CartShop";
-import { PrivateRoute } from "./screen/Log/useSecureRoute";
 
-import { ContextUser } from "./context/Context";
-import { useContext } from "react";
+import AcousticCategory from "./screen/InstrumentList/AcousticCategory";
 import BassCategory from "./screen/InstrumentList/BassCategory";
 import GuitCategory from "./screen/InstrumentList/GuitCategory";
-import AcousticCategory from "./screen/InstrumentList/AcousticCategory";
+
+import "./normalize.css";
+import UserInfo from "./screen/Log/UserInfo";
+
 
 function App() {
   const { accessToken } = useContext(ContextUser);
@@ -49,6 +53,12 @@ function App() {
           </Route>
           <PrivateRoute exact path="/cart">
             <CartShop />
+          </PrivateRoute>
+          <PrivateRoute exact path="/checkout">
+            <Checkout />
+          </PrivateRoute>
+          <PrivateRoute exact path="/info">
+            <UserInfo />
           </PrivateRoute>
         </Switch>
       </BrowserRouter>
