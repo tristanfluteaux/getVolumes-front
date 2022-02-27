@@ -16,7 +16,7 @@ import BassCategory from "./screen/InstrumentList/BassCategory";
 import GuitCategory from "./screen/InstrumentList/GuitCategory";
 
 import "./normalize.css";
-import UserInfo from "./screen/Log/UserInfo";
+import UserInfo from "./screen/Log/userInfo/UserInfo";
 
 
 function App() {

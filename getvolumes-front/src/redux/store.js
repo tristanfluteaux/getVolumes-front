@@ -9,7 +9,7 @@ import {
   getProductsReducer,
   getTypeReducer,
 } from "./reducers/productReducers";
-import { getUserReducer } from "./reducers/userReducers";
+import { getUserReducer, putUserInfoReducer } from "./reducers/userReducers";
 
 const reducer = combineReducers({
   cart: cartReducer,
@@ -17,6 +17,7 @@ const reducer = combineReducers({
   getProductDetails: getProductDetailsReducer,
   getTypeProducts: getTypeReducer,
   user: getUserReducer,
+  modifUser : putUserInfoReducer,
 });
 
 const middleware = [thunk];

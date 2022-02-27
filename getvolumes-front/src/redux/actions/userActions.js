@@ -21,3 +21,26 @@ export const getUser = () => async (dispatch) => {
     });
   }
 };
+
+
+export const putUserInfo = () => async(dispatch) => {
+  try {
+    dispatch({ type: actionTypes.PUT_USER_REQUEST });
+
+    const { data } = await axios.put(`http://localhost:4000/auth/1`);
+
+    dispatch({
+      type: actionTypes.PUT_USER_SUCCESS,
+      payload: data,
+    });
+
+  } catch (error) {
+    dispatch({
+      type: actionTypes.PUT_USER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+}

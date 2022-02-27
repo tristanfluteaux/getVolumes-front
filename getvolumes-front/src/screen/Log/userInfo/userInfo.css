@@ -1,0 +1,34 @@
+.user-title {
+    color: white;
+    font-size: 40px;
+}
+
+.user-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.check-info {
+    color: white;
+    font-size: 30px;
+}
+
+.modif-info {
+    color: white;
+    font-size: 20px;
+}
+
+.modif-input {
+    width: 30vh;
+    height: 26px;
+}
